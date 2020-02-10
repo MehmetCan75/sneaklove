@@ -15,6 +15,7 @@ const bcrypt = require("bcrypt");
     // if (req.file) user.avatar = req.file.secure_url;
 
     if (!user.firstname || !user.lastname || !user.email || !user.password) {
+
       res.redirect("/signup");
       return;
     } else {
@@ -31,7 +32,7 @@ const bcrypt = require("bcrypt");
           user.password = hashed; // new user is ready for db
          
           userModel
-            .create(user)
+            .create({user : user.name})
             .then(() => res.redirect("/signin"))
 
           // .catch(dbErr => console.log(dbErr));

@@ -22,6 +22,8 @@ router.get('/sneakers/collection', (req, res, next) => {
       })
       .catch(next)
 });
+
+
 router.get('/sneakers/:cat', (req, res, next) => {
   Promise.all([
     // The following line: :cat above makes all after : in the url equal to cat var.
